@@ -1,4 +1,4 @@
-# Grafana Community Kubernetes Helm Charts
+# Grafana Kubernetes Helm Charts
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/grafana)](https://artifacthub.io/packages/search?repo=grafana)
@@ -20,6 +20,31 @@ You can then run `helm search repo grafana` to see the charts.
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
 Chart documentation is available in [grafana directory](https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md).
+
+## Helm Provenance and Integrity
+
+Charts in this repository may be signed, allowing you to verify their integrity and
+origin. More information about how provenance works can be found in the official
+[Helm documentation](https://helm.sh/docs/topics/provenance/).
+
+A local running GPG agent is required to complete the verification process.
+
+To add the public signing key to your keyring, run:
+
+```console
+curl https://grafana.github.io/helm-charts/pubkey.gpg | gpg --import
+```
+
+Depending on your GnuPG version (2.1+ in particular), you may need to export the
+imported key so that Helm can find it:
+
+```console
+gpg --export > ~/.gnupg/pubring.gpg
+```
+
+Once your keyring is configured, pass the `--verify` flag to `helm install`,
+`helm upgrade`, `helm pull`, or `helm template` to validate a chart's signature and
+confirm its authenticity.
 
 ## Contributing
 
